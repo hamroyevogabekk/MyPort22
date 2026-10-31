@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#faf8f5">
+<title>OgabekDev.uz | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f5;--card:#fff;--text:#20212c;--muted:#777780;--accent:#c8754f;--orange:#ed8242;--line:#e9e2dc;--shadow:0 15px 45px rgba(65,43,27,.055)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 78% 20%,rgba(235,187,150,.18),transparent 40%),radial-gradient(ellipse at 10% 70%,rgba(228,211,191,.13),transparent 42%)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+.container{width:min(1180px,90%);margin:auto}
+section[id]{scroll-margin-top:95px}
+header{height:78px;position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(180,150,130,.15)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{font-size:24px;font-weight:900;letter-spacing:-1.2px;white-space:nowrap}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:13px;font-weight:600;color:#66636a;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.languages{display:flex;gap:3px;background:white;border:1px solid var(--line);border-radius:12px;padding:4px}
+.languages button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:700;padding:7px;border-radius:8px}
+.languages button.active,.languages button:hover{background:#f4e8dd;color:#9e5737}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border:1px solid transparent;border-radius:12px;background:linear-gradient(120deg,var(--accent),var(--orange));color:white;font-size:13px;font-weight:700;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px #c8754f30}
+.btn:active{transform:scale(.96)}
+.menu-btn{display:none;border:1px solid var(--line);background:white;padding:10px;border-radius:10px;font-size:20px}
+.hero{padding:65px 0 95px;min-height:650px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center}
+.hero h1{font-size:clamp(45px,6.1vw,86px);line-height:1.02;letter-spacing:-5px;font-weight:900;margin-bottom:25px}
+.gradient{background:linear-gradient(110deg,#bd704f,#e58b51);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-subtitle{font-size:clamp(20px,2.2vw,29px);font-weight:600;color:#575760;margin-bottom:28px}
+.rotating-role{color:#e47a38;display:inline-block;min-width:150px;transition:opacity .25s,transform .25s}
+.hero-description{max-width:480px;font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:25px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:13px;font-weight:700;transition:.25s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.stat{min-height:115px;padding:20px;display:flex;align-items:center;gap:15px;background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:19px;transition:.3s}
+.stat:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d8a184}
+.stat-icon{flex-shrink:0;width:49px;height:49px;border-radius:15px;background:#fff0e4;display:grid;place-items:center;font-size:22px}
+.stat:nth-child(2) .stat-icon{background:#e9f3ff}
+.stat:nth-child(3) .stat-icon{background:#e8f8ee}
+.stat:nth-child(4) .stat-icon{background:#f1eaff}
+.stat strong{font-size:25px;letter-spacing:-1px;display:block}
+.stat small{font-size:11px;color:var(--muted);display:block;margin-top:5px}
+.hero-visual{position:relative;min-height:490px;display:flex;align-items:center;justify-content:center}
+.portrait-ring{position:absolute;width:min(100%,450px);aspect-ratio:1;border-radius:50%;border:1px solid #edcdb6;background:radial-gradient(circle,#f9e7d5 0%,#f8eee5 65%,transparent 66%);animation:ringPulse 5s ease-in-out infinite}
+.portrait{position:relative;width:100%;height:470px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:0 0 48% 48%;mix-blend-mode:multiply;mask-image:linear-gradient(to bottom,black 80%,transparent 100%);animation:portraitIn 1s ease both}
+.float-card{position:absolute;z-index:3;display:flex;align-items:center;gap:12px;padding:15px 17px;background:rgba(255,255,255,.96);border:1px solid #eee5de;border-radius:17px;box-shadow:0 15px 35px #50372012;animation:float 4s ease-in-out infinite}
+.float-card .emoji{width:42px;height:42px;display:grid;place-items:center;background:#fff0e1;border-radius:13px;font-size:21px}
+.float-card strong{font-size:12px;display:block}
+.float-card small{display:block;margin-top:7px;color:#999;font-size:10px}
+.float-card.one{top:60px;left:-15px;transform:rotate(-3deg)}
+.float-card.two{top:43%;right:-18px;animation-delay:-1.3s;transform:rotate(3deg)}
+.float-card.three{bottom:40px;right:0;animation-delay:-2.2s;transform:rotate(-2deg)}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes ringPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+@keyframes portraitIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section{padding:85px 0}
+.section-head{text-align:center;max-width:680px;margin:0 auto 42px}
+.eyebrow{display:inline-block;color:var(--accent);background:#f5e8dd;border-radius:30px;padding:8px 13px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:15px}
+.section-head h2{font-size:clamp(29px,4vw,43px);letter-spacing:-1.8px;line-height:1.2;margin-bottom:13px}
+.section-head p{font-size:14px;color:var(--muted);line-height:1.8}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
+.about-card{background:linear-gradient(145deg,#fff,#f7f0e9);border:1px solid var(--line);border-radius:25px;padding:35px}
+.about-card h3{font-size:25px;margin-bottom:15px;letter-spacing:-1px}
+.about-card p{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:16px}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.skill{padding:10px 13px;background:white;border:1px solid var(--line);border-radius:10px;font-size:12px;font-weight:600;transition:.25s}
+.skill:hover{transform:translateY(-3px);color:var(--accent);border-color:#d8a184}
+.about-points{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.point{background:white;border:1px solid var(--line);border-radius:17px;padding:23px;transition:.3s}
+.point:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.point span{font-size:26px}
+.point h4{margin:12px 0 8px;font-size:16px}
+.point p{font-size:12px;line-height:1.7;color:var(--muted)}
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.service-card{padding:27px;background:white;border:1px solid var(--line);border-radius:21px;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.service-card:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#f8e8dc;right:-55px;top:-55px;transition:.4s}
+.service-card:hover{transform:translateY(-8px);border-color:#d8a184;box-shadow:var(--shadow)}
+.service-card:hover:before{transform:scale(1.7)}
+.service-icon{position:relative;width:65px;height:65px;display:grid;place-items:center;border-radius:18px;background:#fff0e4;font-size:31px;margin-bottom:22px;transition:.35s}
+.service-card:nth-child(2) .service-icon{background:#e9f3ff}
+.service-card:nth-child(3) .service-icon{background:#f0eaff}
+.service-card:nth-child(4) .service-icon{background:#e8f8ee}
+.service-card:nth-child(5) .service-icon{background:#fff0e4}
+.service-card:nth-child(6) .service-icon{background:#e7f5f4}
+.service-card:hover .service-icon{transform:rotate(-8deg) scale(1.08)}
+.service-card h3{font-size:17px;margin-bottom:11px}
+.service-card p{font-size:12px;color:var(--muted);line-height:1.8}
+.service-number{position:absolute;right:23px;bottom:20px;color:#e8dfd8;font-size:32px;font-weight:900}
+.projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.project-card{background:white;border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:.3s;cursor:pointer}
+.project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#d8a184}
+.project-image{height:250px;position:relative;overflow:hidden;background:#f0e8df}
+.project-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.project-card:hover .project-image img{transform:scale(1.07)}
+.zoom-hint{position:absolute;inset:0;display:grid;place-items:center;background:#17151b55;color:white;font-size:25px;opacity:0;transition:.25s}
+.project-card:hover .zoom-hint{opacity:1}
+.project-info{padding:18px}
+.project-info h3{font-size:15px;margin-bottom:7px}
+.project-info p{font-size:12px;color:var(--muted);line-height:1.7}
+.project-tag{display:inline-block;background:#f6ece4;color:#ac6543;padding:6px 9px;border-radius:7px;font-size:10px;font-weight:700;margin-top:12px}
+.project-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.project-links a{font-size:11px;color:var(--accent);font-weight:700}
+.sticker-wrap {
+    position: relative;
+}
+
+.sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.sticker {
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    overflow: hidden;
+    background: white;
+    cursor: pointer;
+        transition: transform 0.1s ease;
+    transform-origin: bottom center;
+
+    
+}
+
+.sticker:hover {
+   transform: rotate(-10deg) !important
+
+}
+
+.sticker img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.business-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.business-card{border:1px solid var(--line);background:white;border-radius:22px;overflow:hidden;transition:.3s}
+.business-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.business-image{height:280px;overflow:hidden;background:#f1e7dc;cursor:pointer}
+.business-image img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.business-card:hover .business-image img{transform:scale(1.04)}
+.business-info{padding:21px 24px}
+.business-info h3{font-size:18px;margin-bottom:7px}
+.business-info p{font-size:12px;line-height:1.8;color:var(--muted)}
+.business-info .project-links{margin-top:12px}
+.contact-panel{background:linear-gradient(140deg,#fff,#f7eee6);border:1px solid #eadbd0;border-radius:28px;padding:clamp(25px,5vw,50px);display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.contact-panel h2{font-size:clamp(30px,4vw,43px);letter-spacing:-1.7px;margin-bottom:13px}
+.contact-panel>div>p{color:var(--muted);font-size:13px;line-height:1.9;margin-bottom:24px}
+.contact-item{display:flex;gap:14px;align-items:center;background:#ffffffc9;border:1px solid var(--line);border-radius:15px;padding:15px;margin-top:12px;transition:.25s}
+.contact-item:hover{border-color:#d8a184;transform:translateX(4px)}
+.contact-icon{width:43px;height:43px;border-radius:13px;background:#f5e9df;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.contact-item small{font-size:10px;color:var(--muted);display:block;margin-bottom:5px}
+.contact-item strong{font-size:13px;overflow-wrap:anywhere}
+.online{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:#24965c;margin-bottom:13px}
+.online-dot{width:8px;height:8px;background:#29bf70;border-radius:50%;box-shadow:0 0 0 4px #29bf701c;animation:onlinePulse 2s infinite}
+@keyframes onlinePulse{50%{box-shadow:0 0 0 7px #29bf700a}}
+.social-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.social-link{display:flex;align-items:center;gap:12px;background:white;border:1px solid var(--line);border-radius:15px;padding:16px;transition:.25s;min-width:0}
+.social-link:hover{transform:translateY(-4px);border-color:#d8a184}
+.social-emoji{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:#f5e9df;font-size:20px;flex-shrink:0}
+.social-link strong{font-size:12px;display:block;overflow-wrap:anywhere}
+.social-link small{font-size:10px;color:var(--muted);display:block;margin-top:4px;overflow-wrap:anywhere}
+.response-time{font-size:11px;color:var(--muted);margin-top:18px}
+footer{padding:25px 0;border-top:1px solid var(--line)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.footer-inner p{font-size:11px;color:var(--muted);line-height:1.7}
+.footer-top{font-size:12px;color:var(--accent);font-weight:800}
+.lightbox{position:fixed;inset:0;z-index:500;background:#111e;display:none;align-items:center;justify-content:center;padding:25px}
+.lightbox.open{display:flex;animation:fadeIn .2s ease}
+.lightbox img{max-width:94vw;max-height:88vh;object-fit:contain;border-radius:10px;animation:zoomIn .25s ease}
+.lightbox-close {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 99999;
+
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 50%;
+padding-bottom: 4px;
+    background: white;
+    color: black;
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease;
+}
+
+
+.lightbox-close span {
+    display: block;
+    transform: translateY(-3px);
+}
+.lightbox-close:hover {
+    transform: rotate(180deg) scale(1.15);
+    background: #ff4757;
+    color: #ffffff;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.lightbox-close:focus,
+.lightbox-close:focus-visible,
+.lightbox-close:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.lightbox-close:active {
+    transform: rotate(180deg) scale(0.9);
+}
+
+@media (max-width: 600px) {
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        width: 42px;
+        height: 42px;
+        font-size: 28px;
+    }
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes zoomIn{from{transform:scale(.94)}to{transform:scale(1)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+@media(max-width:950px){
+.nav-links{gap:16px}.nav-links a{font-size:12px}.logo{font-size:21px}.hero-grid{gap:22px}.hero-visual{min-height:410px}.portrait{height:400px}.float-card{padding:11px}.float-card .emoji{width:34px;height:34px}.float-card.one{left:-5px}.float-card.two{right:-5px}.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sticker-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media(max-width:720px){
+html{scroll-padding-top:78px}section[id]{scroll-margin-top:78px}
+header{height:70px}.logo{font-size:21px}.nav-right{gap:7px}.languages button{padding:7px 6px;font-size:10px}.nav-right>.btn{display:none}
+.menu-btn{display:block}
+.nav-links{display:none;position:absolute;top:69px;left:0;right:0;padding:13px 5% 20px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 15px 30px #3223150c;flex-direction:column;align-items:stretch;gap:0}
+.nav-links.open{display:flex}
+.nav-links a{padding:15px 5px;font-size:14px;border-bottom:1px solid #f0e9e2}
+.nav-links a:last-child{border:0}
+.hero{padding:45px 0 65px}
+.hero-grid{grid-template-columns:1fr;gap:15px}
+.hero h1{font-size:clamp(43px,10vw,68px);letter-spacing:-2.8px}
+.hero-subtitle{font-size:21px;margin-bottom:20px}
+.hero-description{font-size:13px}
+.hero-visual{min-height:390px;max-width:460px;width:100%;margin:auto}
+.portrait{height:385px}.portrait-ring{width:min(100%,365px)}
+.float-card.one{left:0;top:35px}.float-card.two{right:0;top:43%}.float-card.three{right:5px;bottom:12px}
+.section{padding:65px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:32px}
+.about-grid{grid-template-columns:1fr}.about-card{padding:25px}.about-points{gap:10px}.point{padding:17px}
+.projects-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.project-image{height:175px}.project-info{padding:13px}.project-info h3{font-size:13px}.project-info p{font-size:11px}
+.sticker-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.sticker{border-radius:12px}
+.business-grid{gap:13px}.business-image{height:190px}.business-info{padding:15px}.business-info h3{font-size:15px}
+.contact-panel{grid-template-columns:1fr;gap:27px}
+}
+@media(max-width:430px){
+.container{width:91%}
+.hero h1{font-size:43px}.hero-visual{min-height:330px}.portrait{height:330px}.portrait-ring{width:285px}
+.float-card{gap:7px;padding:9px 10px;border-radius:12px}.float-card .emoji{width:30px;height:30px;font-size:16px}.float-card strong{font-size:10px}.float-card small{font-size:8px}
+.stats{gap:9px}.stat{min-height:94px;padding:12px 9px;gap:9px;border-radius:14px}.stat-icon{width:36px;height:36px;border-radius:11px;font-size:17px}.stat strong{font-size:21px}.stat small{font-size:9px}
+.services-grid{gap:10px}.service-card{padding:17px 14px;border-radius:16px}.service-icon{width:49px;height:49px;font-size:24px;margin-bottom:15px}.service-card h3{font-size:14px}.service-card p{font-size:11px}.service-number{font-size:23px;right:12px;bottom:10px}
+.projects-grid{gap:9px}.project-image{height:135px}.project-info{padding:11px}.project-tag{font-size:9px;padding:5px 6px}
+.sticker-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.business-grid{grid-template-columns:1fr}.business-image{height:220px}
+.social-grid{gap:8px}.social-link{padding:11px;gap:8px}.social-emoji{width:32px;height:32px}.social-link strong{font-size:11px}.social-link small{font-size:9px}
+.footer-inner{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a href="#home" class="logo">OgabekDev<span>.uz</span></a>
+<nav class="nav-links" id="navLinks">
+<a href="#about" data-t="navAbout">Men haqimda</a>
+<a href="#projects" data-t="navProjects">Ishlarim</a>
+<a href="#contact" data-t="navContact">Aloqa</a>
+</nav>
+<div class="nav-right">
+<div class="languages">
+<button class="active" data-lang="uz">UZ</button>
+<button data-lang="en">EN</button>
+<button data-lang="ru">RU</button>
+</div>
+<a class="btn" href="#contact" data-t="connect">Bog‘lanish ↗</a>
+<button class="menu-btn" id="menuBtn" aria-label="Menyuni ochish">☰</button>
+</div>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<h1>Hamroyev<br><span class="gradient">Og'abek</span></h1>
+<div class="hero-subtitle"><span data-t="iAm">Men —</span> <span class="rotating-role" id="role">Dasturchi</span></div>
+<p class="hero-description" data-t="heroDesc">Zamonaviy veb-saytlar, kreativ dizaynlar va biznes uchun raqamli yechimlar yarataman. Har bir loyiha — yangi g‘oya va yangi natija.</p>
+<div class="hero-actions">
+<a href="#projects" class="btn" data-t="seeWork">🚀 Ishlarimni ko‘rish</a>
+<a href="#contact" class="btn-outline" data-t="contactMe">Bog‘lanish ↗</a>
+</div>
+<div class="stats">
+<div class="stat"><div class="stat-icon">💻</div><div><strong>20+</strong><small data-t="projectsDone">Bajarilgan loyiha</small></div></div>
+<div class="stat"><div class="stat-icon">👥</div><div><strong>10+</strong><small data-t="happyClients">Mamnun mijoz</small></div></div>
+<div class="stat"><div class="stat-icon">⚡</div><div><strong>2+</strong><small data-t="experience">Yillik tajriba</small></div></div>
+<div class="stat"><div class="stat-icon">🏆</div><div><strong>5+</strong><small data-t="certificates">Sertifikatlar</small></div></div>
+</div>
+</div>
+
+<div class="hero-visual">
+<div class="portrait-ring"></div>
+<div class="portrait">
+<img src="./me.png" alt="Og'abek uchun namuna portret" id="portraitImg">
+</div>
+<div class="float-card one"><div class="emoji">💡</div><div><strong data-t="ideas">G‘oyalar</strong><small>Creative thinking</small></div></div>
+<div class="float-card two"><div class="emoji">📈</div><div><strong data-t="results">Natija</strong><small>Real results</small></div></div>
+<div class="float-card three"><div class="emoji">✨</div><div><strong data-t="growth">O‘sish</strong><small>Always improving</small></div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow" data-t="aboutEyebrow">Men haqimda</span><h2 data-t="aboutTitle">Salom! Men <span class="gradient">Og'abekman</span></h2><p data-t="aboutDesc">G‘oyalarni zamonaviy va foydali raqamli mahsulotlarga aylantirishni yaxshi ko‘raman.</p></div>
+<div class="about-grid">
+<div class="about-card reveal"><h3 data-t="whoAmI">Men kimman? 👋</h3><p data-t="aboutText">Men dasturlash, SMM va kreativ dizayn yo‘nalishlarida ishlayman. Maqsadim — biznes va shaxsiy brendlar uchun chiroyli, qulay va samarali raqamli yechimlar yaratish.</p><p data-t="aboutText2">Har bir detalga e’tibor beraman: dizayndan tortib mobil moslashuvchanlikkacha. Men uchun yaxshi loyiha — nafaqat chiroyli, balki foydali loyiha.</p><div class="skills"><span class="skill">💻 HTML / CSS / JS</span><span class="skill">🎨 UI / UX</span><span class="skill">📱 SMM</span><span class="skill">⚙️ Web development</span><span class="skill">✨ Branding</span></div></div>
+<div class="about-points reveal">
+<div class="point"><span>💡</span><h4 data-t="ideas">G‘oyalar</h4><p data-t="ideaDesc">Har bir ishni yangi fikr va kreativ yondashuv bilan boshlayman.</p></div>
+<div class="point"><span>🎯</span><h4 data-t="results">Natija</h4><p data-t="resultDesc">Maqsadga yo‘naltirilgan, qulay va tushunarli yechimlar.</p></div>
+<div class="point"><span>📈</span><h4 data-t="growth">O‘sish</h4><p data-t="growthDesc">Doim yangi bilimlarni o‘rganaman va mahoratimni oshiraman.</p></div>
+<div class="point"><span>🤝</span><h4 data-t="partnership">Hamkorlik</h4><p data-t="partnershipDesc">Mijoz bilan muloqot va ishonchli hamkorlikka ahamiyat beraman.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow" data-t="servicesEyebrow">Nimalar qilaman?</span><h2 data-t="servicesTitle">Xizmatlarim</h2><p data-t="servicesDesc">G‘oyangizni amalga oshirish uchun kerakli raqamli xizmatlar bir joyda.</p></div>
+<div class="services-grid">
+<div class="service-card reveal"><div class="service-icon">🌐</div><h3 data-t="service1">Web sayt va Landing page</h3><p data-t="service1d">Zamonaviy, tezkor, barcha ekranlarga mos veb-saytlar va sotuv sahifalari.</p><span class="service-number">01</span></div>
+<div class="service-card reveal"><div class="service-icon">🔗</div><h3 data-t="service2">Vizitka va QR link</h3><p data-t="service2d">Kontaktlaringiz va brendingiz uchun qulay raqamli vizitkalar.</p><span class="service-number">02</span></div>
+<div class="service-card reveal"><div class="service-icon">🎨</div><h3 data-t="service3">Logo va banner dizayni</h3><p data-t="service3d">Brendingizni ajratib turadigan kreativ vizual materiallar.</p><span class="service-number">03</span></div>
+<div class="service-card reveal"><div class="service-icon">🛒</div><h3 data-t="service4">Sotuv dasturlari</h3><p data-t="service4d">Savdo jarayonlarini yengillashtiradigan raqamli vositalar.</p><span class="service-number">04</span></div>
+<div class="service-card reveal"><div class="service-icon">💬</div><h3 data-t="service5">Telegram stikerlar</h3><p data-t="service5d">Sizning uslubingiz va brendingizga mos maxsus stikerlar.</p><span class="service-number">05</span></div>
+<div class="service-card reveal"><div class="service-icon">⚙️</div><h3 data-t="service6">CRM / ERP ilovalar</h3><p data-t="service6d">Mijozlar, vazifalar va biznes jarayonlarini boshqarish tizimlari.</p><span class="service-number">06</span></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="projects">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow" data-t="portfolioEyebrow">Portfolio</span><h2 data-t="portfolioTitle">Tanlangan <span class="gradient">loyihalar</span></h2><p data-t="portfolioDesc">Quyidagi rasmlar namuna sifatida berilgan. Ularni o‘z loyihalaringiz bilan almashtirishingiz mumkin.</p></div>
+<div class="projects-grid">
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="Biznes veb-sayt namunasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Business Website</h3><p data-t="demoProject">Biznes uchun zamonaviy dizayn namunasi.</p><span class="project-tag">WEB DESIGN</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=700&q=80" alt="Landing page namunasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Landing Page</h3><p data-t="demoProject">Mahsulot taqdimoti uchun sahifa namunasi.</p><span class="project-tag">LANDING PAGE</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=700&q=80" alt="Grafik dizayn namunasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Creative Design</h3><p data-t="demoProject">Kreativ dizayn va vizual yechim.</p><span class="project-tag">DESIGN</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80" alt="Dashboard loyihasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Analytics Dashboard</h3><p data-t="demoProject">Ma’lumotlarni ko‘rsatish interfeysi.</p><span class="project-tag">DASHBOARD</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=700&q=80" alt="Brending loyihasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Brand Identity</h3><p data-t="demoProject">Brend uchun vizual uslub namunasi.</p><span class="project-tag">BRANDING</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Jamoa boshqaruvi loyihasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Team Workspace</h3><p data-t="demoProject">Jamoa uchun raqamli ish maydoni.</p><span class="project-tag">WEB APP</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Dasturlash loyihasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Developer Portfolio</h3><p data-t="demoProject">Dasturchi uchun portfolio namunasi.</p><span class="project-tag">PORTFOLIO</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=700&q=80" alt="Mobil ilova namunasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Mobile App UI</h3><p data-t="demoProject">Mobil ilova interfeysi namunasi.</p><span class="project-tag">MOBILE UI</span><div class="project-links"></div></div></div>
+<div class="project-card reveal" data-image="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1600&q=90"><div class="project-image"><img loading="lazy" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=700&q=80" alt="Veb loyiha namunasi"><div class="zoom-hint">⌕</div></div><div class="project-info"><h3>Digital Experience</h3><p data-t="demoProject">Zamonaviy raqamli tajriba namunasi.</p><span class="project-tag">DEVELOPMENT</span><div class="project-links"></div></div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="stickers">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">Telegram stickers</span>
+            <h2 data-t="stickersTitle">
+                Telegram uchun maxsus to‘plamlar
+                <span class="gradient">Stickerlar</span>
+            </h2>
+            <p data-t="stickersDesc">
+                Telegram kanalingiz yoki brendingiz uchun kreativ stiker namunalari.
+            </p>
+        </div>
+
+        <div class="sticker-grid">
+            <div class="sticker reveal"><img loading="lazy" src="./1.png" alt="Sticker namuna 1"></div>
+            <div class="sticker reveal"><img loading="lazy" src="./2.png" alt="Sticker namuna 2"></div>
+            <div class="sticker reveal"><img loading="lazy" src="./3.png" alt="Sticker namuna 3"></div>
+            <div class="sticker reveal"><img loading="lazy" src="./4.png" alt="Sticker namuna 4"></div>
+            <div class="sticker reveal"><img loading="lazy" src="./5.png" alt="Sticker namuna 5"></div>
+            <div class="sticker reveal"><img loading="lazy" src="./6.png" alt="Sticker namuna 6"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="business">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow">Business design</span><h2 data-t="businessTitle">Brendingiz uchun esda qolarli <span class="gradient">dizayn Vizitkalar</span></h2><p data-t="businessDesc">Biznesingizni professional ko‘rsatadigan vizitka va brending namunalari.</p></div>
+<div class="business-grid">
+<div class="business-card reveal"><div class="business-image" data-image="./personal.png"><img loading="lazy" src="./personal.png" alt="Minimal vizitka dizayni"></div><div class="business-info"><h3 data-t="card1">shaxsiy vizitka</h3><p data-t="cardDesc1">Sodda, zamonaviy va esda qolarli dizayn.</p><div class="project-links"><a href="#contact" data-t="orderDesign">Dizayn buyurtma qilish ↗</a></div></div></div>
+<div class="business-card reveal"><div class="business-image" data-image="./carr.png"><img loading="lazy" src="./carr.png" alt="Brend identifikatsiyasi"></div><div class="business-info"><h3 data-t="card2">Premium brending</h3><p data-t="cardDesc2">Biznesingiz uchun yaxlit vizual uslub.</p><div class="project-links"><a href="#contact" data-t="orderDesign">Dizayn buyurtma qilish ↗</a></div></div></div>
+<div class="business-card reveal"><div class="business-image" data-image="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1400&q=90"><img loading="lazy" src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Kanselyariya va brending"></div><div class="business-info"><h3 data-t="card3">Brend materiallari</h3><p data-t="cardDesc3">Bir xil uslubdagi bosma va raqamli materiallar.</p><div class="project-links"><a href="#contact" data-t="orderDesign">Dizayn buyurtma qilish ↗</a></div></div></div>
+<div class="business-card reveal"><div class="business-image" data-image="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1400&q=90"><img loading="lazy" src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=800&q=80" alt="Rangli brend dizayni"></div><div class="business-info"><h3 data-t="card4">Kreativ vizual dizayn</h3><p data-t="cardDesc4">Ijtimoiy tarmoqlar va reklama uchun kreativ yechimlar.</p><div class="project-links"><a href="#contact" data-t="orderDesign">Dizayn buyurtma qilish ↗</a></div></div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="section-head reveal"><span class="eyebrow" data-t="contactEyebrow">Aloqa</span><h2 data-t="contactTitle">Birga ishlaymizmi?</h2><p data-t="contactDesc">G‘oyangiz bormi? Keling, uni birgalikda amalga oshiramiz.</p></div>
+<div class="contact-panel reveal">
+<div>
+<div class="online"><span class="online-dot"></span><span data-t="online">Onlayn — xabaringizni kutaman</span></div>
+<h2 data-t="letsTalk">Keling, gaplashamiz! 👋</h2>
+<p data-t="letsTalkDesc">Loyihangiz haqida yozing yoki qo‘ng‘iroq qiling. Siz bilan hamkorlik qilishdan mamnun bo‘laman.</p>
+<a class="contact-item" href="tel:+998901234567"><div class="contact-icon"><img src="https://cdn-icons-png.flaticon.com/128/254/254407.png" alt=""></div><div><small data-t="callMe">Qo‘ng‘iroq qiling</small><strong>+998 77 334 55 85</strong></div></a>
+<div class="contact-item"><div class="contact-icon"><img width="30px" src="https://cdn-icons-png.flaticon.com/128/684/684908.png" alt=""></div><div><small data-t="location">Manzil</small><strong data-t="locationValue">O‘zbekiston, Surxondaryo viloyati, Jarkurgan</strong></div></div>
+<p class="response-time" data-t="response">⏱ Odatda 2 daqiqa ichida javob beraman.</p>
+</div>
+<div>
+<div class="social-grid">
+<a class="social-link" href="https://t.me/HamroyevOgabekk" target="_blank" rel="noopener"><span class="social-emoji"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536661.png" alt=""></span><span><strong>Telegram</strong><small>@HamroyevOgabekk</small></span></a>
+<a class="social-link" href="https://www.instagram.com/khamroyev.xw?stkn=OWJkbGZ4d2N6cncy" target="_blank" rel="noopener"><span class="social-emoji"><img src="https://cdn-icons-png.flaticon.com/128/15713/15713420.png" alt=""></span><span><strong>Instagram</strong><small>@Khamroyev.xw</small></span></a>
+<a class="social-link" href="https://github.com/hamroyevogabekk" target="_blank" rel="noopener"><span class="social-emoji"><img src="https://cdn-icons-png.flaticon.com/128/3291/3291695.png" alt=""></span><span><strong>GitHub</strong><small>hamroyevogabekk</small></span></a>
+<a class="social-link" href="mailto:hamroyevogabek525@gmail.com"><span class="social-emoji"><img src="https://cdn-icons-png.flaticon.com/128/9801/9801502.png" alt=""></span><span><strong>Gmail</strong><small>hamroyevogabek525@gmail.com</small></span></a>
+</div>  
+<a class="btn" style="width:100%;margin-top:18px" href="https://t.me/HamroyevOgabekk" target="_blank" rel="noopener" data-t="writeTelegram">Telegram orqali yozish ↗</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-inner">
+<a href="#home" class="logo">OgabekDev<span>.uz</span></a>
+<p>© <span id="year"></span> OgabekDev.uz — <span data-t="footerText">Barcha huquqlar himoyalangan.</span></p>
+<a href="#home" class="footer-top" data-t="backTop">Yuqoriga ↑</a>
+</div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Rasmni katta ko‘rish">
+<button class="lightbox-close" id="lightboxClose" aria-label="Yopish">×</button>
+<img src="" alt="Katta rasm" id="lightboxImg">
+</div>
+
+<script>
+const translations={
+uz:{
+navAbout:"Men haqimda",navProjects:"Ishlarim",navContact:"Aloqa",connect:"Bog‘lanish ↗",
+iAm:"Men —",heroDesc:"Zamonaviy veb-saytlar, kreativ dizaynlar va biznes uchun raqamli yechimlar yarataman. Har bir loyiha — yangi g‘oya va yangi natija.",
+seeWork:"🚀 Ishlarimni ko‘rish",contactMe:"Bog‘lanish ↗",projectsDone:"Bajarilgan loyiha",happyClients:"Mamnun mijoz",experience:"Yillik tajriba",certificates:"Sertifikatlar",
+ideas:"G‘oyalar",results:"Natija",growth:"O‘sish",partnership:"Hamkorlik",aboutEyebrow:"Men haqimda",aboutTitle:'Salom! Men <span class="gradient">Og‘abekman</span>',
+aboutDesc:"G‘oyalarni zamonaviy va foydali raqamli mahsulotlarga aylantirishni yaxshi ko‘raman.",whoAmI:"Men kimman? 👋",
+aboutText:"Men dasturlash, SMM va kreativ dizayn yo‘nalishlarida ishlayman. Maqsadim — biznes va shaxsiy brendlar uchun chiroyli, qulay va samarali raqamli yechimlar yaratish.",
+aboutText2:"Har bir detalga e’tibor beraman: dizayndan tortib mobil moslashuvchanlikkacha. Men uchun yaxshi loyiha — nafaqat chiroyli, balki foydali loyiha.",
+ideaDesc:"Har bir ishni yangi fikr va kreativ yondashuv bilan boshlayman.",resultDesc:"Maqsadga yo‘naltirilgan, qulay va tushunarli yechimlar.",growthDesc:"Doim yangi bilimlarni o‘rganaman va mahoratimni oshiraman.",partnershipDesc:"Mijoz bilan muloqot va ishonchli hamkorlikka ahamiyat beraman.",
+servicesEyebrow:"Nimalar qilaman?",servicesTitle:"Xizmatlarim",servicesDesc:"G‘oyangizni amalga oshirish uchun kerakli raqamli xizmatlar bir joyda.",
+service1:"Web sayt va Landing page",service1d:"Zamonaviy, tezkor, barcha ekranlarga mos veb-saytlar va sotuv sahifalari.",
+service2:"Vizitka va QR link",service2d:"Kontaktlaringiz va brendingiz uchun qulay raqamli vizitkalar.",
+service3:"Logo va banner dizayni",service3d:"Brendingizni ajratib turadigan kreativ vizual materiallar.",
+service4:"Sotuv dasturlari",service4d:"Savdo jarayonlarini yengillashtiradigan raqamli vositalar.",
+service5:"Telegram stikerlar",service5d:"Sizning uslubingiz va brendingizga mos maxsus stikerlar.",
+service6:"CRM / ERP ilovalar",service6d:"Mijozlar, vazifalar va biznes jarayonlarini boshqarish tizimlari.",
+portfolioEyebrow:"Portfolio",portfolioTitle:'Tanlangan <span class="gradient">loyihalar</span>',portfolioDesc:"Quyidagi rasmlar namuna sifatida berilgan. Ularni o‘z loyihalaringiz bilan almashtirishingiz mumkin.",
+demoProject:"Loyiha uchun dizayn namunasi.",stickersTitle:'Telegram uchun maxsus to‘plamlar <span class="gradient">Stickerlar</span>',stickersDesc:"Telegram kanalingiz yoki brendingiz uchun kreativ stiker namunalari.",
+businessTitle:'Brendingiz uchun esda qolarli <span class="gradient">dizayn Vizitkalar</span>',businessDesc:"Biznesingizni professional ko‘rsatadigan vizitka va brending namunalari.",
+card1:"shaxsiy vizitka",card2:"Premium brending",card3:"Brend materiallari",card4:"Kreativ vizual dizayn",cardDesc1:"Sodda, zamonaviy va esda qolarli dizayn.",cardDesc2:"Biznesingiz uchun yaxlit vizual uslub.",cardDesc3:"Bir xil uslubdagi bosma va raqamli materiallar.",cardDesc4:"Ijtimoiy tarmoqlar va reklama uchun kreativ yechimlar.",orderDesign:"Dizayn buyurtma qilish ↗",
+contactEyebrow:"Aloqa",contactTitle:"Birga ishlaymizmi?",contactDesc:"G‘oyangiz bormi? Keling, uni birgalikda amalga oshiramiz.",online:"Onlayn — xabaringizni kutaman",letsTalk:"Keling, gaplashamiz! 👋",letsTalkDesc:"Loyihangiz haqida yozing yoki qo‘ng‘iroq qiling. Siz bilan hamkorlik qilishdan mamnun bo‘laman.",callMe:"Qo‘ng‘iroq qiling",location:"Manzil",locationValue:"O‘zbekiston, Toshkent viloyati, Toshkent shahri",response:"⏱ Odatda 2 daqiqa ichida javob beraman.",writeTelegram:"Telegram orqali yozish ↗",footerText:"Barcha huquqlar himoyalangan.",backTop:"Yuqoriga ↑"
+},
+en:{
+navAbout:"About",navProjects:"My Work",navContact:"Contact",connect:"Let's talk ↗",iAm:"I'm a",
+heroDesc:"I create modern websites, creative designs and digital solutions for businesses. Every project starts with an idea and aims for results.",
+seeWork:"🚀 View my work",contactMe:"Contact me ↗",projectsDone:"Projects completed",happyClients:"Happy clients",experience:"Years of experience",certificates:"Certificates",
+ideas:"Ideas",results:"Results",growth:"Growth",partnership:"Partnership",aboutEyebrow:"About me",aboutTitle:'Hello! I’m <span class="gradient">Og‘abek</span>',
+aboutDesc:"I enjoy turning ideas into modern and useful digital products.",whoAmI:"Who am I? 👋",
+aboutText:"I work in web development, SMM and creative design. My goal is to build attractive, accessible and effective digital solutions for businesses and personal brands.",
+aboutText2:"I care about every detail, from design to responsive layouts. A good project should not only look great but also be useful.",
+ideaDesc:"I approach every project with fresh ideas and creativity.",resultDesc:"Clear, useful solutions focused on your goals.",growthDesc:"I keep learning and improving my skills.",partnershipDesc:"I value communication and reliable collaboration.",
+servicesEyebrow:"What I do",servicesTitle:"My Services",servicesDesc:"Digital services to help bring your ideas to life.",
+service1:"Websites & Landing Pages",service1d:"Modern, fast, responsive websites and landing pages.",
+service2:"Digital Business Cards & QR",service2d:"Convenient digital business cards for your brand.",
+service3:"Logo & Banner Design",service3d:"Creative visuals that help your brand stand out.",
+service4:"Sales Applications",service4d:"Digital tools that simplify sales processes.",
+service5:"Telegram Stickers",service5d:"Custom stickers tailored to your style and brand.",
+service6:"CRM / ERP Applications",service6d:"Systems for managing customers, tasks and business processes.",
+portfolioEyebrow:"Portfolio",portfolioTitle:'Selected <span class="gradient">Projects</span>',portfolioDesc:"These are example images. Replace them with your own projects.",
+demoProject:"A sample design for a digital project.",stickersTitle:'Custom Telegram <span class="gradient">Sticker Packs</span>',stickersDesc:"Creative sticker examples for your Telegram channel or brand.",
+businessTitle:'Memorable design for your brand <span class="gradient">Business Cards</span>',businessDesc:"Business card and branding examples for a professional identity.",
+card1:"Personal business card",card2:"Premium Branding",card3:"Brand Materials",card4:"Creative Visual Design",cardDesc1:"A simple, modern and memorable design.",cardDesc2:"A cohesive visual identity for your business.",cardDesc3:"Coordinated print and digital materials.",cardDesc4:"Creative solutions for social media and advertising.",orderDesign:"Request a design ↗",
+contactEyebrow:"Contact",contactTitle:"Shall we work together?",contactDesc:"Have an idea? Let's bring it to life together.",online:"Online — happy to hear from you",letsTalk:"Let's talk! 👋",letsTalkDesc:"Message or call me about your project. I'd be happy to collaborate.",callMe:"Call me",location:"Location",locationValue:"Tashkent, Uzbekistan",response:"⏱ I usually reply within 2 minutes.",writeTelegram:"Message on Telegram ↗",footerText:"All rights reserved.",backTop:"Back to top ↑"
+},
+ru:{
+navAbout:"Обо мне",navProjects:"Работы",navContact:"Контакты",connect:"Связаться ↗",iAm:"Я —",
+heroDesc:"Создаю современные сайты, креативный дизайн и цифровые решения для бизнеса. Каждый проект начинается с идеи и ведёт к результату.",
+seeWork:"🚀 Мои работы",contactMe:"Связаться ↗",projectsDone:"Выполнено проектов",happyClients:"Довольных клиентов",experience:"Года опыта",certificates:"Сертификаты",
+ideas:"Идеи",results:"Результат",growth:"Развитие",partnership:"Сотрудничество",aboutEyebrow:"Обо мне",aboutTitle:'Привет! Я <span class="gradient">Огабек</span>',
+aboutDesc:"Мне нравится превращать идеи в современные и полезные цифровые продукты.",whoAmI:"Кто я? 👋",
+aboutText:"Я занимаюсь веб-разработкой, SMM и креативным дизайном. Моя цель — создавать красивые, удобные и эффективные цифровые решения для бизнеса и личных брендов.",
+aboutText2:"Я уделяю внимание каждой детали: от дизайна до адаптации для мобильных устройств. Хороший проект должен быть не только красивым, но и полезным.",
+ideaDesc:"Начинаю каждый проект с новых идей и творческого подхода.",resultDesc:"Понятные решения, ориентированные на ваши цели.",growthDesc:"Постоянно учусь и совершенствую навыки.",partnershipDesc:"Ценю общение и надёжное сотрудничество.",
+servicesEyebrow:"Чем занимаюсь",servicesTitle:"Мои услуги",servicesDesc:"Цифровые услуги для воплощения ваших идей.",
+service1:"Сайты и Landing Page",service1d:"Современные, быстрые и адаптивные сайты.",service2:"Визитки и QR-ссылки",service2d:"Удобные цифровые визитки для вашего бренда.",service3:"Логотипы и баннеры",service3d:"Креативные визуальные материалы для вашего бренда.",service4:"Программы для продаж",service4d:"Цифровые инструменты для упрощения продаж.",service5:"Стикеры Telegram",service5d:"Уникальные стикеры в стиле вашего бренда.",service6:"CRM / ERP приложения",service6d:"Системы управления клиентами и бизнес-процессами.",
+portfolioEyebrow:"Портфолио",portfolioTitle:'Избранные <span class="gradient">проекты</span>',portfolioDesc:"Это примеры изображений. Замените их собственными проектами.",
+demoProject:"Пример дизайна цифрового проекта.",stickersTitle:'Специальные наборы для Telegram <span class="gradient">Стикеры</span>',stickersDesc:"Креативные стикеры для вашего канала или бренда.",
+businessTitle:'Запоминающийся дизайн <span class="gradient">Визитки</span>',businessDesc:"Примеры визиток и фирменного стиля для бизнеса.",
+card1:"личная визитная карточка",card2:"Премиальный брендинг",card3:"Материалы бренда",card4:"Креативный дизайн",cardDesc1:"Простой, современный и запоминающийся дизайн.",cardDesc2:"Цельный визуальный стиль вашего бизнеса.",cardDesc3:"Согласованные печатные и цифровые материалы.",cardDesc4:"Креативные решения для соцсетей и рекламы.",orderDesign:"Заказать дизайн ↗",
+contactEyebrow:"Контакты",contactTitle:"Будем работать вместе?",contactDesc:"Есть идея? Давайте воплотим её вместе.",online:"Онлайн — жду вашего сообщения",letsTalk:"Давайте обсудим! 👋",letsTalkDesc:"Напишите или позвоните мне по поводу вашего проекта. Буду рад сотрудничеству.",callMe:"Позвонить",location:"Адрес",locationValue:"Ташкент, Узбекистан",response:"⏱ Обычно отвечаю в течение 2 минут.",writeTelegram:"Написать в Telegram ↗",footerText:"Все права защищены.",backTop:"Наверх ↑"
+}
+};
+
+const roles={
+uz:["Dasturchi","SMM mutaxassisi","UI/UX dizayner"],
+en:["Developer","SMM Specialist","UI/UX Designer"],
+ru:["Разработчик","SMM-специалист","UI/UX дизайнер"]
+};
+let currentLang="uz",roleIndex=0;
+const roleEl=document.getElementById("role");
+
+function setLanguage(lang){
+if(!translations[lang])return;
+currentLang=lang;
+document.documentElement.lang=lang;
+document.querySelectorAll("[data-t]").forEach(el=>{
+const key=el.dataset.t;
+if(translations[lang][key]!==undefined)el.innerHTML=translations[lang][key];
+});
+document.querySelectorAll("[data-lang]").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));
+roleIndex=0;
+roleEl.textContent=roles[lang][0];
+}
+document.querySelectorAll("[data-lang]").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)));
+
+setInterval(()=>{
+roleEl.style.opacity="0";
+roleEl.style.transform="translateY(6px)";
+setTimeout(()=>{
+roleIndex=(roleIndex+1)%roles[currentLang].length;
+roleEl.textContent=roles[currentLang][roleIndex];
+roleEl.style.opacity="1";
+roleEl.style.transform="translateY(0)";
+},250);
+},2200);
+
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.addEventListener("click",()=>{
+const open=navLinks.classList.toggle("open");
+menuBtn.textContent=open?"✕":"☰";
+menuBtn.setAttribute("aria-expanded",String(open));
+});
+navLinks.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
+navLinks.classList.remove("open");
+menuBtn.textContent="☰";
+menuBtn.setAttribute("aria-expanded","false");
+}));
+
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+link.addEventListener("click",e=>{
+const target=document.querySelector(link.getAttribute("href"));
+if(!target)return;
+e.preventDefault();
+const headerHeight=document.querySelector("header").offsetHeight;
+const top=target.getBoundingClientRect().top+window.scrollY-headerHeight;
+window.scrollTo({top:Math.max(0,top),behavior:"smooth"});
+});
+});
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const sections=document.querySelectorAll("main section[id]");
+const navItems=document.querySelectorAll(".nav-links a");
+const navObserver=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+navItems.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+entry.target.id));
+}
+});
+},{rootMargin:"-25% 0px -65% 0px"});
+sections.forEach(section=>navObserver.observe(section));
+
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightboxImg");
+function openLightbox(src,alt){
+if(!src)return;
+lightboxImg.src=src;
+lightboxImg.alt=alt||"Portfolio rasmi";
+lightbox.classList.add("open");
+document.body.style.overflow="hidden";
+document.getElementById("lightboxClose").focus();
+}
+function closeLightbox(){
+lightbox.classList.remove("open");
+document.body.style.overflow="";
+lightboxImg.src="";
+}
+document.querySelectorAll(".project-card,.sticker,.business-image").forEach(item=>{
+item.addEventListener("click",e=>{
+if(e.target.closest(".project-links a"))return;
+const src=item.dataset.image||item.querySelector("img")?.src;
+openLightbox(src,item.querySelector("img")?.alt);
+});
+});
+document.getElementById("lightboxClose").addEventListener("click",closeLightbox);
+lightbox.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox()});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+setLanguage("uz");
+</script>
+</body>
+</html>
